@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Administración de Biblioteca</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <style>
+        td{
+            color:#696969; 
+            font-size:18px; 
+            font-family:trebuchet ms,helvetica,sans-serif;
+        }
+        th{
+            color:#265a88; 
+            font-size:25px; 
+            font-family:trebuchet ms,helvetica,sans-serif;
+        }
+    </style>
+
+    <!-- JS -->
+    <script src="js/vendor/jquery-1.11.2.js"></script>
+    <script src="js/vendor/angular.js/angular.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    
+
+    <!-- APP JS -->
+    <script src="app/app.js" type="text/javascript"></script>
+    <script src="app/libros/LibrosListCtrl.js"></script>
+    
+</head>
+<body ng-app="BibliotecaManagement">
+    <div class="panel panel-primary" ng-controller="LibrosListCtrl as vm">
+        <div class="panel-heading" style="font-size:large">
+            Catalogo de Libros
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        <button class="btn btn-primary" 
+                                ng-click="vm.toggleImage()">
+                            {{vm.showImage == false? "Mostrar" : "Ocultar"}} Imagen</button>
+                    </th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Categoría</th>
+                    <th>ISBN</th>
+                    <th>Disponibilidad</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="libro in vm.libros">
+                        <td>
+                            <img ng-if="vm.showImage" ng-src="{{libro.portada}}" style="width: 150px; height: 225px" alt="">
+                        </td>
+                        <td>{{libro.titulo}}</td>
+                        <td style="font-weight: bold">{{libro.autor}}</td>
+                        <td>{{libro.categoria}}</td>
+                        <td>{{libro.ISBN}}</td>
+                        <td>{{libro.disponibilidad}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

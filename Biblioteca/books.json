@@ -1,0 +1,9 @@
+{
+   "id" : 1,
+   "titulo" : "El Hobbit",
+   "autor" : "J. R. R. Tolkien",
+   "categoria" : "Fantasia",
+   "ISBN" : "978-84-450-0176-9",
+   "disponibilidad" : "19",
+   "portada" : "img/hobbit-portada.jpg"
+}
